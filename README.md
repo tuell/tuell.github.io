@@ -29,6 +29,14 @@ The data for the cards was collected from multiple sources.
 - Internet users: http://www.internetlivestats.com/internet-users-by-country/ 
 - Carbon footprint: http://edgar.jrc.ec.europa.eu/overview.php?v=CO2ts_pc1990-2013 
 
+### The code
+
+This game was written in HTML, CSS and Javascript. It relies on code and inspiration from several other projects, such as:
+- Bootstrap-Framework: https://getbootstrap.com/
+- Javascript code for shuffling arrays: https://github.com/Daplie/knuth-shuffle
+- CSS for incorporating Emoji-icons: https://afeld.github.io/emoji-css/
+- SVG-files for the country flags: https://github.com/lipis/flag-icon-css
+
 ### Roadmap
 
 Since this is a private project, there are no specific plans for further development. Possibilities include incorporating a rule book on the test page, adding information about the data sources and additional information on the different categories and possibly even information on how to engage in fighting these inequalities.
