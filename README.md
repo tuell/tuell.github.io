@@ -11,23 +11,23 @@ This game is the result of a hackathon of Deutsche Welle and BBC in June 2018. B
 
 Each card lists the statistics for one country in seven categories:
 
-👣 Carbon emissions per person in tons
-🍼 Price of 1 liter of milk in US dollars
-🤐 Freedom of Press Rank according to Reporters Without Borders
-🖥️ Percentage of people with internet access
-☠️ Life expectancy
-🗳️ Year in which women got equal voting rights
+- Carbon emissions per person in tons
+- Price of 1 liter of milk in US dollars
+- Freedom of Press Rank according to Reporters Without Borders
+- Percentage of people with internet access
+- Life expectancy
+- Year in which women got equal voting rights
 
 ### The data
 
 The data for the cards was collected from multiple sources.
 
-Milk price: https://www.numbeo.com/cost-of-living/prices_by_city.jsp?displayCurrency=USD 
-Women’s suffrage: https://en.wikipedia.org/wiki/Women's_suffrage#Timeline 
-Life expectancy: http://apps.who.int/gho/data/view.main.HALEXv?lang=en 
-Freedom of the press: https://rsf.org/en/ranking 
-Internet users: http://www.internetlivestats.com/internet-users-by-country/ 
-Carbon footprint: http://edgar.jrc.ec.europa.eu/overview.php?v=CO2ts_pc1990-2013 
+- Milk price: https://www.numbeo.com/cost-of-living/prices_by_city.jsp?displayCurrency=USD 
+- Women’s suffrage: https://en.wikipedia.org/wiki/Women's_suffrage#Timeline 
+- Life expectancy: http://apps.who.int/gho/data/view.main.HALEXv?lang=en 
+- Freedom of the press: https://rsf.org/en/ranking 
+- Internet users: http://www.internetlivestats.com/internet-users-by-country/ 
+- Carbon footprint: http://edgar.jrc.ec.europa.eu/overview.php?v=CO2ts_pc1990-2013 
 
 ### Roadmap
 
