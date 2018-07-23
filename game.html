@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Inequality Top Flops</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css'>
+  <link rel='stylesheet prefetch' href='https://afeld.github.io/emoji-css/emoji.css'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="container px-2 my-2 d-none d-sm-block mx-auto text-center">
+  <h1 class="display-4">Inequality Top Flops</h1>
+</div>
+<div class="container d-block d-sm-none mx-auto text-center">
+  <h3>Inequality Top Flops</h3>
+</div>
+<div class="container px-2 my-1 my-sm-5 mx-auto text-center">
+  <div class="row">
+    <!-- Points counter -->
+    <div class="border border-light rounded bg-light d-none d-sm-block col-md-4 mb-2 mx-auto py-1 px-3 py-sm-3 px-sm-4">
+      <div class="d-flex w-100 justify-content-between">
+        <h5><i class="em em-slightly_smiling_face mr-1"></i> <span class="d-none d-sm-inline">Player</span></h6>
+        <h5><strong id="player_count">0</strong></h5>
+        <h5 id="player_count">:</h5>
+        <h5><strong id="computer_count">0</strong></h5>
+        <h5><span class="d-none d-sm-inline">Computer</span> <i class="em em-robot_face ml-1"></i> </h6>
+      </div>
+    </div>
+    <!-- Progress bar -->
+    <div class="col-12 col-sm-6 col-md-3 mx-auto py-1 px-5 py-sm-3 px-sm-4">
+      <div class="text-secondary">
+        <h6 class="d-none d-sm-block">Game progress</h6>
+        <div class="progress w-100" id="gameProgress">
+        </div>
+      </div>
+    </div>
+    <!-- Place for displaying messages after ech turn -->
+    <div class="col-12 col-sm-6 col-md-3 mx-auto py-1 px-5 py-sm-3 px-sm-4">
+      <div class="text-center text-secondary" id="info_line">
+        <h6><i class="em em-hourglass mr-1"></i> Waiting for turn</h6>
+      </div>
+    </div>
+    <!-- Buttons to control the game -->
+    <div class="col-11 col-md-2 mx-auto text-center py-1 px-1 py-sm-3 px-sm-4">
+      <button type="button" class="btn btn-dark" id="startGame">New Game</button>
+      <button type="button" class="btn btn-dark" id="startZug">Next turn</button>
+      <button type="button" class="btn btn-dark" id="newGame">New Game</button>
+      <button type="button" class="btn btn-dark" id="showSummary">Summary</button>
+      <button type="button" class="btn btn-dark" id="waiting" disabled>Waiting...</button>
+    </div>
+  </div>
+</div>
+
+<!-- Summary after the game goes here -->
+<div class="container" id="summary">
+  <div class="col-md-10 col-lg-8 mx-0 mx-sm-auto">
+	<div class="col-11 mx-auto text-center mb-2" id="summaryHeadline">
+	  <h3 class="text-success">Player wins 2:1 <i class='em em-grinning mr-1'></i></h3>
+    </div>
+    <div class="list-group" id="summary_list">
+      <!-- This gets built in Javascript
+      <div class="list-group-item list-group-item-danger d-flex w-100 justify-content-between">
+        <div>
+          <h1><i class="em em-robot_face mr-1"></i></h1>
+        </div>
+        <div class="p-1">Spieler: Eintracht Frankfurt<br>Ewige Tabelle &ndash; 9. Platz</div>
+        <div class="p-1">Computer: Bayern München<br>Ewige Tabelle &ndash; 1. Platz</div>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- Playing cards go here -->
+<div class="container" id="cards">
+  <div class="card-deck text-center">
+    <div class="card col-12 col-sm-11 col-md-5 col-lg-4 p-0 mx-auto mb-2" id="playercard">
+      <div class="card-body p-0 text-left d-flex w-100" id="playercard_header">
+        <!-- Content built in Javascript -->
+      </div>
+      <div class="card-body">
+        <div class="list-group list-group-flush" id="playercard_categories">
+          <!-- Content built in Javascript -->
+        </div>
+      </div>
+    </div>
+    <div id="computercard" class="flip-container card col-12 col-sm-11 col-md-5 col-lg-4 p-0 mx-auto mb-2">
+      <div class="flipper">
+        <!-- Prebuilt back of computer card -->
+        <div class="back">
+          <div class="card-body p-0 text-left">
+<!--           <img src="img/cardbackhead.jpg" class="card-img-top"> Image on top of card currently disabled -->
+            <h3 class='m-3 card-title'>No peeking!</h3>
+          </div>
+          <div class="card-body">
+            <div class="list-group list-group-flush transparent-list">
+              <div class="list-group-item d-flex w-100 justify-content-between">
+                <h6>Category</h6>
+                <span>XXXXX</span>
+              </div>
+              <div class="list-group-item d-flex w-100 justify-content-between">
+                <h6>Category</h6>
+                <span>XXXXX</span>
+              </div>
+              <div class="list-group-item d-flex w-100 justify-content-between">
+                <h6>Category</h6>
+                <span>XXXXX</span>
+              </div>
+              <div class="list-group-item d-flex w-100 justify-content-between">
+                <h6>Category</h6>
+                <span>XXXXX</span>
+              </div>
+              <div class="list-group-item d-flex w-100 justify-content-between">
+                <h6>Category</h6>
+                <span>XXXXX</span>
+              </div>
+              <div class="list-group-item d-flex w-100 justify-content-between">
+                <h6>Category</h6>
+                <span>XXXXX</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- front of computer card -->
+        <div class="front">
+          <div class="card-body p-0 text-left d-flex w-100" id="computercard_header">
+            <!-- Content built in Javascript -->
+          </div>
+          <div class="card-body">
+            <div class="list-group list-group-flush" id="computercard_categories">
+              <!-- Content built in Javascript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Javascript-files -->
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script  src="js/index.js"></script>
+
+</body>
+
+</html>
