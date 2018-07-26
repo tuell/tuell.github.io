@@ -180,10 +180,10 @@ var stateOfGame;
 
 var turnWonMsg = "You win!";
 var turnLostMsg = "You lose...";
-var turnDrawMsg = "Noone wins.";
+var turnDrawMsg = "No one wins.";
 var gameWonMsg = "You win the game ";
 var gameLostMsg = "Computer wins ";
-var gameDrawMsg = "Noone wins &ndash; ";
+var gameDrawMsg = "No one wins &ndash; ";
 var turnWaitMsg = "Choose category";
 var gameOverMsg = "Game over";
 var gameWaitMsg = "Start new game?";
@@ -293,6 +293,13 @@ function buildComputerCard() {
   var computerCardDiv = document.getElementById("computercard");
   computerCardDiv.classList.toggle('flip');
 
+  var computerCardBack = document.getElementById("computerCardBack");
+  computerCardBack.style.height = $(playercard).height() + "px";
+  var computercardBackHeader = document.getElementById("computercardBackHeader");
+  computercardBackHeader.innerHTML =  "<img src='img/flags/" + currentComputerCard[0] + ".svg' class='flag mr-2 align-middle img-thumbnail'>" + currentComputerCard[0];
+
+  $('#someDiv').height();
+
   // Change heading of computer card
   var computercardHeader = document.getElementById("computercard_header");
   computercardHeader.innerHTML = "<h3 class='m-3 card-title'> <img src='img/flags/" + currentComputerCard[0] + ".svg' class='flag mr-2 align-middle img-thumbnail'>" + currentComputerCard[0] + "</h3>";
@@ -352,7 +359,7 @@ $(document).ready(function() {
       var newSummaryLine = document.createElement("div");
       newSummaryLine.classList.add("list-group-item");
 	  newSummaryRow = document.createElement("div");
-      newSummaryRow.classList.add("row");	  
+      newSummaryRow.classList.add("row");
       var newSummaryEmoji = document.createElement("div");
       newSummaryEmoji.classList.add("d-none", "d-sm-block", "col-sm-2");
 
