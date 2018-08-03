@@ -6,6 +6,18 @@
   display: none;
 }
 
+#computercard, #playercard {
+  min-width: 250px;
+}
+
+.scrolling-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .transparent-list .list-group-item {
   background-color: transparent!important;
   color: transparent!important;
