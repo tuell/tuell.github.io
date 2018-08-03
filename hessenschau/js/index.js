@@ -184,7 +184,7 @@ var turnDrawMsg = "Unentschieden.";
 var gameWonMsg = "Spiel gewonnen: ";
 var gameLostMsg = "Spiel verloren: ";
 var gameDrawMsg = "Unentschieden: ";
-var turnWaitMsg = "Kategorie wÃ¤hlen";
+var turnWaitMsg = "Kategorie w&auml;hlen";
 var gameOverMsg = "Spiel vorbei";
 var gameWaitMsg = "Neues Spiel beginnen?";
 
