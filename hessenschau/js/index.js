@@ -310,7 +310,7 @@ $(document).ready(function() {
 
       var progressBarWin = document.createElement("div");
       progressBarWin.classList.add("progress-bar", "bg-success");
-      progressBarWin.style = "width: 10%";
+      progressBarWin.style = "width: 14.29%";
       progressBarWin.role = "progressbar";
 
       var progressBarLose = document.createElement("div");
