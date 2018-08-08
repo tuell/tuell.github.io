@@ -92,14 +92,14 @@ var gameWaitMsg = "Neues Spiel beginnen?";
 
 function shuffleCards() {
   //Shuffles the array specified in the beginning, deals cards to player and computer
-  wahlkreise = [bergstraße_i, bergstraße_ii_, darmstadt-dieburg_i, darmstadt-dieburg_ii, darmstadt-stadt_i_und_ii, 
-		eschwege-witzenhausen, frankfurt_am_main_i_-_vi, fulda_i, fulda_ii, gießen_i, gießen_ii, groß-gerau_i, 
-		groß-gerau_ii, hersfeld, hochtaunus_i, hochtaunus_ii, kassel-land_i, kassel-land_ii, kassel-stadt_i_und_ii, 
-		lahn-dill_i, lahn-dill_ii, limburg-weilburg_i, limburg-weilburg_ii, main-kinzig_i, main-kinzig_ii, 
-		main-kinzig_iii, main-taunus_i, main-taunus_ii, marburg-biedenkopf_i, marburg-biedenkopf_ii, odenwald, 
-		offenbach_land_i, offenbach_land_ii, offenbach_land_iii, offenbach-stadt_, rheingau-taunus_i, 
-		rheingau-taunus_ii, rotenburg, schwalm-eder_i, schwalm-eder_ii, vogelsberg, waldeck-frankenberg_i, 
-		waldeck-frankenberg_ii, wetterau_i, wetterau_ii, wetterau_iii, wiesbaden_i_und_ii];
+  wahlkreise = [bergstraße_i, bergstraße_ii_, darmstadt_dieburg_i, darmstadt_dieburg_ii, darmstadt_stadt_i_und_ii, 
+		eschwege_witzenhausen, frankfurt_am_main_i___vi, fulda_i, fulda_ii, gießen_i, gießen_ii, groß_gerau_i, 
+		groß_gerau_ii, hersfeld, hochtaunus_i, hochtaunus_ii, kassel_land_i, kassel_land_ii, kassel_stadt_i_und_ii, 
+		lahn_dill_i, lahn_dill_ii, limburg_weilburg_i, limburg_weilburg_ii, main_kinzig_i, main_kinzig_ii, 
+		main_kinzig_iii, main_taunus_i, main_taunus_ii, marburg_biedenkopf_i, marburg_biedenkopf_ii, odenwald, 
+		offenbach_land_i, offenbach_land_ii, offenbach_land_iii, offenbach_stadt_, rheingau_taunus_i, 
+		rheingau_taunus_ii, rotenburg, schwalm_eder_i, schwalm_eder_ii, vogelsberg, waldeck_frankenberg_i, 
+		waldeck_frankenberg_ii, wetterau_i, wetterau_ii, wetterau_iii, wiesbaden_i_und_ii];
   var currentIndex = wahlkreise.length, temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...
