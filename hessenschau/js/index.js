@@ -275,7 +275,7 @@ $(document).ready(function() {
       newSummaryComputer.classList.add("p-1", "col-6");
       newSummaryComputer.innerHTML = "<strong>" + currentComputerCard[0] + "</strong><br>" + data_header[categoryID] + ": <br class='d-block d-sm-none'>" + currentComputerCard[categoryID] + data_suffix[categoryID];
 
-      if (data_comparison[categoryID] == "larger") {
+      if (data_comparison[categoryID] == "größer") {
         if (firstPlayerCard[categoryID] > firstComputerCard[categoryID]) {
           newSummaryEmoji.innerHTML = "<h1><i class='em em-slightly_smiling_face'></h1>";
           newSummaryLine.classList.add('list-group-item-success');
@@ -325,7 +325,7 @@ $(document).ready(function() {
 
       // compare values, change message accordingly, update score
 
-      if (data_comparison[categoryID] == "larger") {
+      if (data_comparison[categoryID] == "größer") {
         if (firstPlayerCard[categoryID] > firstComputerCard[categoryID]) {
           chosenPlayerCategory.classList.add('list-group-item-success');
           chosenComputerCategory.classList.add('list-group-item-danger');
