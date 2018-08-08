@@ -315,12 +315,12 @@ $(document).ready(function() {
 
       var progressBarLose = document.createElement("div");
       progressBarLose.classList.add("progress-bar", "bg-danger");
-      progressBarLose.style = "width: 10%";
+      progressBarLose.style = "width: 14.29%";
       progressBarLose.role = "progressbar";
 
       var progressBarDraw = document.createElement("div");
       progressBarDraw.classList.add("progress-bar", "bg-warning");
-      progressBarDraw.style = "width: 10%";
+      progressBarDraw.style = "width: 14.29%";
       progressBarDraw.role = "progressbar";
 
       // compare values, change message accordingly, update score
