@@ -199,13 +199,14 @@ function buildComputerCard() {
   var computerCardBack = document.getElementById("computerCardBack");
   computerCardBack.style.height = $(playercard).height() + "px";
   var computercardBackHeader = document.getElementById("computercardBackHeader");
-  computercardBackHeader.innerHTML =  "<img src='img/flags/" + currentComputerCard[0] + ".svg' class='flag mr-2 align-middle img-thumbnail'>" + currentComputerCard[0];
-
+  // computercardBackHeader.innerHTML =  "<img src='img/flags/" + currentComputerCard[0] + ".svg' class='flag mr-2 align-middle img-thumbnail'>" + currentComputerCard[0];
+  computercardBackHeader.innerHTML =  currentComputerCard[0];
   $('#someDiv').height();
 
   // Change heading of computer card
   var computercardHeader = document.getElementById("computercard_header");
-  computercardHeader.innerHTML = "<h3 class='m-3 card-title'> <img src='img/flags/" + currentComputerCard[0] + ".svg' class='flag mr-2 align-middle img-thumbnail'>" + currentComputerCard[0] + "</h3>";
+  // computercardHeader.innerHTML = "<h3 class='m-3 card-title'> <img src='img/flags/" + currentComputerCard[0] + ".svg' class='flag mr-2 align-middle img-thumbnail'>" + currentComputerCard[0] + "</h3>";
+  computercardHeader.innerHTML = "<h3 class='m-3 card-title'>" + currentComputerCard[0] + "</h3>";
 
   // Fill in computer card by looping through card-array
   var computercardCategories = document.getElementById("computercard_categories");
@@ -457,8 +458,9 @@ function initTurn() {
 
   // Change heading of player card
   var playercardHeader = document.getElementById("playercard_header");
-  playercardHeader.innerHTML = "<h3 class='m-3 card-title'> <img src='img/flags/" + currentPlayerCard[0] + ".svg' class='flag mr-2 align-middle img-thumbnail'>" + currentPlayerCard[0] + "</h3>";
-
+  // playercardHeader.innerHTML = "<h3 class='m-3 card-title'> <img src='img/flags/" + currentPlayerCard[0] + ".svg' class='flag mr-2 align-middle img-thumbnail'>" + currentPlayerCard[0] + "</h3>";
+  playercardHeader.innerHTML = "<h3 class='m-3 card-title'>" + currentPlayerCard[0] + "</h3>";
+	
   // Fill in player card by looping through card-array
   var playercardCategories = document.getElementById("playercard_categories");
   playercardCategories.innerHTML = "";
