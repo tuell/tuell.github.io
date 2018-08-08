@@ -16,8 +16,8 @@ var infoLine = document.getElementById("info_line");
 var summaryList = document.getElementById("summary_list");
 var gameProgressBar = document.getElementById("gameProgress");
 
-var data_header = ['Wahlkreis', 'Fläche', 'Bevölkerung', 'Kirchensteuerzahler', 'Zuzugsbilanz', 'Schweine', 'Waldfläche'];
-var data_suffix = ['', '', '', ' %', '', '', ' %'];
+var data_header = ['Wahlkreis', 'Fläche', 'Bevölkerung', 'Kirchensteuer-<br>zahler', 'Zuzugsbilanz', 'Schweine', 'Waldfläche'];
+var data_suffix = ['', 'km<sup>2</sup>', '', ' %', '', '', ' %'];
 var data_comparison = ['', 'größer', 'größer', 'größer', 'größer', 'größer', 'größer'];
 var bergstraße_i = ['Bergstraße I', 299.63, 137382, 69, 1157, 1637, 35];
 var bergstraße_ii_ = ['Bergstraße II ', 419.88, 130553, 71, 670, 1252, 44];
