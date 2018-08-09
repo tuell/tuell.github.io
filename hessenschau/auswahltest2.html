@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hessenschau-Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css'>
+  <link rel='stylesheet prefetch' href='https://afeld.github.io/emoji-css/emoji.css'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- TEST: BREITE AUF 660 EINSTELLEN
+<div style="max-width: 660px;" class="container p-0 mx-auto my-3 border border-dark"> -->
+
+<div class="container-fluid text-center p-0">
+  <!-- Points counter -->
+  <div class="border border-dark bg-dark text-white d-none d-sm-block mb-2 mx-0 py-1 px-3 py-sm-3 px-sm-4">
+    <div class="d-flex w-100 justify-content-between">
+      <h5><i class="em em-slightly_smiling_face mr-1"></i> <span class="d-none d-sm-inline">Spieler</span></h6>
+      <h5><strong id="player_count">0</strong></h5>
+      <h5 id="player_count">:</h5>
+      <h5><strong id="computer_count">0</strong></h5>
+      <h5><span class="d-none d-sm-inline">Computer</span> <i class="em em-robot_face ml-1"></i> </h6>
+    </div>
+  </div>
+  <div class="row mx-1">
+    <!-- Progress bar -->
+    <div class="col-11 col-sm-6 mx-auto py-1 px-2">
+      <div class="text-secondary">
+        <h6 class="d-none d-sm-block">Spielfortschritt</h6>
+        <div class="progress w-100" id="gameProgress">
+        </div>
+      </div>
+    </div>
+    <!-- Place for displaying messages after ech turn -->
+    <div class="col-11 col-sm-6 mx-auto py-1 px-2 d-flex align-items-center justify-content-center">
+      <div class="text-center text-secondary" id="info_line">
+        <h5><i class="em em-hourglass mr-1"></i> Warte auf Zug</h5>
+      </div>
+    </div>
+  </div>
+  <!-- Buttons to control the game -->
+  <div class="d-flex w-100 mx-auto justify-content-center p1 py-sm-3 px-sm-4">
+    <button type="button" class="btn btn-lg btn-dark" id="startGame">Neues Spiel</button>
+    <button type="button" class="btn btn-lg btn-dark" id="startTurn">N&auml;chster Zug</button>
+    <button type="button" class="btn btn-lg btn-dark" id="newGame">Neues Spiel</button>
+    <button type="button" class="btn btn-lg btn-dark" id="showSummary">Zusammenfassung</button>
+    <button type="button" class="btn btn-lg btn-dark" id="waiting" disabled>Warte...</button>
+  </div>
+</div>
+
+<!-- Summary after the game goes here -->
+<div class="container-fluid" id="gamemode">
+  <div class="p-1">
+    <h3 class="mt-3">Spielmodus auswählen</h3>
+    <button type="button" class="btn btn-lg btn-primary btn-block m-1" id="classic">Zufällige Wahlkreise</button>
+    
+    <button type="button" class="btn btn-lg btn-primary btn-block m-1" id="choosecard">Mit diesem Wahlkreis spielen</button>
+    <h3 class="mt-3">Kategorien auswählen</h3>
+    <p>Wählen Sie <strong>noch vier</strong> Kategorien aus, mit denen Sie spielen wollen.</p>
+    <button type="button" class="btn btn-lg btn-primary btn-block m-1" id="randomcategories">Zufällige Kategorien</button>
+    <div class="d-flex w-100 justify-content-between">
+      <button type="button" class="btn btn-secondary m-1">Schweine</button>
+      <button type="button" class="btn btn-success m-1">Kirchsteuerzahler</button>
+      <button type="button" class="btn btn-secondary m-1">Fläche</button>
+      <button type="button" class="btn btn-secondary m-1">Bevölkerung</button>
+      <button type="button" class="btn btn-secondary m-1">Zuzugsbilanz</button>
+      <button type="button" class="btn btn-secondary m-1">Waldfläche</button>
+      <button type="button" class="btn btn-secondary m-1">Tesla-Quote</button>
+      <button type="button" class="btn btn-secondary m-1">Gender Pay Gap</button>
+    </div>
+    <button type="button" class="btn btn-lg btn-primary btn-block m-1" id="chosencategories">Mit diesen Kategorien spielen</button>
+  </div>
+</div>
+
+<!-- TEST DIV 660 ENDE
+</div> -->
+
+<!-- Javascript-files -->
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script  src="js/index.js"></script>
+
+</body>
+
+</html>
