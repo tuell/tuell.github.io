@@ -1,4 +1,45 @@
-#startTurn, #newGame, #waiting, #showSummary {
+/* SCHRIFTART */
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+}
+
+h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+/* FARBEN */
+
+.btn-primary {
+  background-color: #005293!important;
+  border-color: #005293!important;
+}
+
+.text-danger, .bg-danger {
+  color: #CC1A14!important;
+}
+
+.text-warning, .bg-warning {
+  color: #FFB114!important;
+}
+
+.text-success, .bg-success {
+  color: #019B72!important;
+}
+
+a {
+  color: #006dc1!important;
+}
+
+/* SONSTIGES */
+
+#startGame, #startTurn, #newGame, #waiting, #showSummary {
   display: none;
 }
 
@@ -8,6 +49,34 @@
 
 #computercard, #playercard {
   min-width: 250px;
+}
+
+/* Place cards behind each other on mobile */
+
+@media only screen and (max-width: 576px) {
+  #playercard {
+    z-index: 10;
+    position: relative;
+    top: 50px;
+    max-width: 250px;
+  }
+
+  #computercard {
+    z-index: 5;
+    position: relative;
+    left: -155px;
+    max-width: 250px;
+  }
+
+  #buttons {
+    margin-top: 50px;
+  }
+
+
+}
+
+.card-deck {
+  overflow: visible!important;
 }
 
 .scrolling-wrapper {
