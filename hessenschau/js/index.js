@@ -5,7 +5,7 @@ var startTurnButton = document.getElementById("startTurn");
 startTurnButton.addEventListener("click", initTurn);
 
 var newGameButton = document.getElementById("newGame");
-newGameButton.addEventListener("click", initGame);
+newGameButton.addEventListener("click", initNewGame);
 
 var showSummaryButton = document.getElementById("showSummary");
 showSummaryButton.addEventListener("click", initSummary);
@@ -20,12 +20,12 @@ var data_header = ['Wahlkreis', 'Fläche', 'Bevölkerung', 'Kirchensteuer', 'Zuz
 var data_suffix = ['', ' km²', '', ' %', '', '', ' %'];
 var data_comparison = ['', 'größer', 'größer', 'größer', 'größer', 'größer', 'größer'];
 var bergstraße_i = ['Bergstraße I', 300, 137382, 69, 1157, 1637, 35];
-var bergstraße_ii_ = ['Bergstraße II ', 420, 130553, 71, 670, 1252, 44];
-var darmstadt_dieburg_i = ['Darmstadt-Dieburg I', 174, 120744, 59, 802, 5051, 28];
-var darmstadt_dieburg_ii = ['Darmstadt-Dieburg II', 365, 127450, 67, 904, 16156, 37];
-var darmstadt_stadt_i_und_ii = ['Darmstadt-Stadt I und II', 242, 203987, 55, 2368, 470, 40];
-var eschwege_witzenhausen = ['Eschwege-Witzenhausen', 595, 75970, 77, 868, 6048, 42];
-var frankfurt_am_main_i___vi = ['Frankfurt am Main I - VI', 248, 736414, 44, 480, 1123, 15];
+var bergstraße_ii = ['Bergstraße II ', 420, 130553, 71, 670, 1252, 44];
+var darmstadt_dieburg_i = ['DA-Dieburg I', 174, 120744, 59, 802, 5051, 28];
+var darmstadt_dieburg_ii = ['DA-Dieburg II', 365, 127450, 67, 904, 16156, 37];
+var darmstadt_stadt_i_und_ii = ['DA-Stadt I+II', 242, 203987, 55, 2368, 470, 40];
+var eschwege_witzenhausen = ['Eschwege-Witz.', 595, 75970, 77, 868, 6048, 42];
+var frankfurt_am_main_i___vi = ['Frankfurt a.M. I-VI', 248, 736414, 44, 480, 1123, 15];
 var fulda_i = ['Fulda I', 451, 106473, 77, 626, 24662, 38];
 var fulda_ii = ['Fulda II', 839, 107647, 87, 604, 21377, 33];
 var gießen_i = ['Gießen I', 220, 135108, 64, 2287, 100, 33];
@@ -35,40 +35,96 @@ var groß_gerau_ii = ['Groß-Gerau II', 330, 132857, 56, 1008, 5452, 19];
 var hersfeld = ['Hersfeld', 680, 77813, 78, 78, 36669, 40];
 var hochtaunus_i = ['Hochtaunus I', 255, 122643, 58, 1149, 183, 44];
 var hochtaunus_ii = ['Hochtaunus II', 227, 112348, 58, 770, 180, 50];
-var kassel_land_i = ['Kassel-Land I', 1020, 114530, 77, 868, 44014, 27];
-var kassel_land_ii = ['Kassel-Land II', 268, 120433, 70, 1295, 7202, 27];
-var kassel_stadt_i_und_ii = ['Kassel-Stadt I und II', 107, 199062, 57, 1210, 0, 21];
+var kassel_land_i = ['KS-Land I', 1020, 114530, 77, 868, 44014, 27];
+var kassel_land_ii = ['KS-Land II', 268, 120433, 70, 1295, 7202, 27];
+var kassel_stadt_i_und_ii = ['KS-Stadt I und II', 107, 199062, 57, 1210, 0, 21];
 var lahn_dill_i = ['Lahn-Dill I', 648, 122713, 69, 322, 93, 51];
 var lahn_dill_ii = ['Lahn-Dill II', 418, 131361, 70, 1359, 1739, 42];
-var limburg_weilburg_i = ['Limburg-Weilburg I', 265, 88262, 75, 674, 6188, 22];
-var limburg_weilburg_ii = ['Limburg-Weilburg II', 474, 83858, 76, 16, 7835, 40];
+var limburg_weilburg_i = ['Limburg-Weilb. I', 265, 88262, 75, 674, 6188, 22];
+var limburg_weilburg_ii = ['Limburg-Weilb. II', 474, 83858, 76, 16, 7835, 40];
 var main_kinzig_i = ['Main-Kinzig I', 306, 127743, 66, 955, 1857, 27];
 var main_kinzig_ii = ['Main-Kinzig II', 141, 159720, 52, 3343, 7, 18];
 var main_kinzig_iii = ['Main-Kinzig III', 950, 129252, 75, 982, 2905, 50];
 var main_taunus_i = ['Main-Taunus I', 100, 119224, 57, 1305, 0, 18];
 var main_taunus_ii = ['Main-Taunus II', 122, 116484, 60, 1446, 304, 9];
-var marburg_biedenkopf_i = ['Marburg-Biedenkopf I', 771, 111323, 75, 175, 13033, 40];
-var marburg_biedenkopf_ii = ['Marburg-Biedenkopf II', 492, 133690, 70, 153, 14820, 37];
+var marburg_biedenkopf_i = ['Marburg-Bied. I', 771, 111323, 75, 175, 13033, 40];
+var marburg_biedenkopf_ii = ['Marburg-Bied. II', 492, 133690, 70, 153, 14820, 37];
 var odenwald = ['Odenwald', 624, 96473, 67, -152, 817, 47];
 var offenbach_land_i = ['Offenbach Land I', 122, 127446, 51, 721, 615, 47];
 var offenbach_land_ii = ['Offenbach Land II', 75, 105538, 51, 599, 23, 42];
 var offenbach_land_iii = ['Offenbach Land III', 160, 116998, 63, 1247, 473, 39];
 var offenbach_stadt_ = ['Offenbach-Stadt ', 45, 124589, 44, 463, 0, 33];
-var rheingau_taunus_i = ['Rheingau-Taunus I', 444, 89137, 68, 727, 0, 54];
-var rheingau_taunus_ii = ['Rheingau-Taunus II', 367, 96531, 61, 1305, 939, 49];
+var rheingau_taunus_i = ['Rheingau-Taun. I', 444, 89137, 68, 727, 0, 54];
+var rheingau_taunus_ii = ['Rheingau-Taun. II', 367, 96531, 61, 1305, 939, 49];
 var rotenburg = ['Rotenburg', 941, 77211, 79, 495, 43362, 44];
 var schwalm_eder_i = ['Schwalm-Eder I', 613, 90371, 77, 1015, 77482, 31];
 var schwalm_eder_ii = ['Schwalm-Eder II', 925, 90734, 83, 659, 70573, 36];
 var vogelsberg = ['Vogelsberg', 1556, 116432, 83, 140, 61134, 39];
-var waldeck_frankenberg_i = ['Waldeck-Frankenberg I', 908, 79754, 78, 634, 44329, 38];
-var waldeck_frankenberg_ii = ['Waldeck-Frankenberg II', 941, 78213, 80, 442, 17993, 53];
+var waldeck_frankenberg_i = ['Waldeck-Frank. I', 908, 79754, 78, 634, 44329, 38];
+var waldeck_frankenberg_ii = ['Waldeck-Frank. II', 941, 78213, 80, 442, 17993, 53];
 var wetterau_i = ['Wetterau I', 221, 112345, 61, 1219, 1003, 15];
 var wetterau_ii = ['Wetterau II', 547, 95562, 72, 578, 4058, 33];
 var wetterau_iii = ['Wetterau III', 333, 96007, 68, 970, 7026, 21];
 var wiesbaden_i_und_ii = ['Wiesbaden I und II', 204, 277619, 51, 908, 558, 27];
+var wahlkreise = [bergstraße_i, bergstraße_ii, darmstadt_dieburg_i, darmstadt_dieburg_ii, darmstadt_stadt_i_und_ii,
+  eschwege_witzenhausen, frankfurt_am_main_i___vi, fulda_i, fulda_ii, gießen_i, gießen_ii, groß_gerau_i,
+  groß_gerau_ii, hersfeld, hochtaunus_i, hochtaunus_ii, kassel_land_i, kassel_land_ii, kassel_stadt_i_und_ii,
+  lahn_dill_i, lahn_dill_ii, limburg_weilburg_i, limburg_weilburg_ii, main_kinzig_i, main_kinzig_ii,
+  main_kinzig_iii, main_taunus_i, main_taunus_ii, marburg_biedenkopf_i, marburg_biedenkopf_ii, odenwald,
+  offenbach_land_i, offenbach_land_ii, offenbach_land_iii, offenbach_stadt_, rheingau_taunus_i,
+  rheingau_taunus_ii, rotenburg, schwalm_eder_i, schwalm_eder_ii, vogelsberg, waldeck_frankenberg_i,
+  waldeck_frankenberg_ii, wetterau_i, wetterau_ii, wetterau_iii, wiesbaden_i_und_ii];
+var wahlkreisliste = [['bergstraße_i', 'Bergstraße I'],
+  ['bergstraße_ii', 'Bergstraße II'],
+  ['darmstadt_dieburg_i', 'Darmstadt-Dieburg I'],
+  ['darmstadt_dieburg_ii', 'Darmstadt-Dieburg II'],
+  ['darmstadt_stadt_i_und_ii', 'Darmstadt-Stadt I+II'],
+  ['eschwege_witzenhausen', 'Eschwege-Witzenhausen'],
+  ['frankfurt_am_main_i___vi', 'Frankfurt a.M. I-VI'],
+  ['fulda_i', 'Fulda I'],
+  ['fulda_ii', 'Fulda II'],
+  ['gießen_i', 'Gießen I'],
+  ['gießen_ii', 'Gießen II'],
+  ['groß_gerau_i', 'Groß-Gerau I'],
+  ['groß_gerau_ii', 'Groß-Gerau II'],
+  ['hersfeld', 'Hersfeld'],
+  ['hochtaunus_i', 'Hochtaunus I'],
+  ['hochtaunus_ii', 'Hochtaunus II'],
+  ['kassel_land_i', 'Kassel-Land I'],
+  ['kassel_land_ii', 'Kassel-Land II'],
+  ['kassel_stadt_i_und_ii', 'Kassel-Stadt I und II'],
+  ['lahn_dill_i', 'Lahn-Dill I'],
+  ['lahn_dill_ii', 'Lahn-Dill II'],
+  ['limburg_weilburg_i', 'Limburg-Weilburg I'],
+  ['limburg_weilburg_ii', 'Limburg-Weilburg II'],
+  ['main_kinzig_i', 'Main-Kinzig I'],
+  ['main_kinzig_ii', 'Main-Kinzig II'],
+  ['main_kinzig_iii', 'Main-Kinzig III'],
+  ['main_taunus_i', 'Main-Taunus I'],
+  ['main_taunus_ii', 'Main-Taunus II'],
+  ['marburg_biedenkopf_i', 'Marburg-Biedenkopf I'],
+  ['marburg_biedenkopf_ii', 'Marburg-Biedenkopf II'],
+  ['odenwald', 'Odenwald'],
+  ['offenbach_land_i', 'Offenbach Land I'],
+  ['offenbach_land_ii', 'Offenbach Land II'],
+  ['offenbach_land_iii', 'Offenbach Land III'],
+  ['offenbach_stadt_', 'Offenbach-Stadt'],
+  ['rheingau_taunus_i', 'Rheingau-Taunus I'],
+  ['rheingau_taunus_ii', 'Rheingau-Taunus II'],
+  ['rotenburg', 'Rotenburg'],
+  ['schwalm_eder_i', 'Schwalm-Eder I'],
+  ['schwalm_eder_ii', 'Schwalm-Eder II'],
+  ['vogelsberg', 'Vogelsberg'],
+  ['waldeck_frankenberg_i', 'Waldeck-Frankenberg I'],
+  ['waldeck_frankenberg_ii', 'Waldeck-Frankenberg II'],
+  ['wetterau_i', 'Wetterau I'],
+  ['wetterau_ii', 'Wetterau II'],
+  ['wetterau_iii', 'Wetterau III'],
+  ['wiesbaden_i_und_ii', 'Wiesbaden I und II']];
 
-
-var wahlkreise;
+var gameMode;
+var chosenCard;
+var chosenCategories;
 var playerCards;
 var computerCards;
 var playerPoints;
@@ -79,6 +135,10 @@ var currentPlayerCard;
 var currentComputerCard;
 var stateOfGame;
 
+
+var chooseCardMsg = "(Wahlkreis auswählen)";
+var noCardSelectionMsG = "Kein Wahlkreis ausgewählt"
+var noCategorySelectionMsG = "Genau fünf Kategorien auswählen"
 var turnWonMsg = "Gewonnen!";
 var turnLostMsg = "Verloren...";
 var turnDrawMsg = "Unentschieden.";
@@ -92,14 +152,7 @@ var gameWaitMsg = "Neues Spiel beginnen?";
 
 function shuffleCards() {
   //Shuffles the array specified in the beginning, deals cards to player and computer
-  wahlkreise = [bergstraße_i, bergstraße_ii_, darmstadt_dieburg_i, darmstadt_dieburg_ii, darmstadt_stadt_i_und_ii, 
-		eschwege_witzenhausen, frankfurt_am_main_i___vi, fulda_i, fulda_ii, gießen_i, gießen_ii, groß_gerau_i, 
-		groß_gerau_ii, hersfeld, hochtaunus_i, hochtaunus_ii, kassel_land_i, kassel_land_ii, kassel_stadt_i_und_ii, 
-		lahn_dill_i, lahn_dill_ii, limburg_weilburg_i, limburg_weilburg_ii, main_kinzig_i, main_kinzig_ii, 
-		main_kinzig_iii, main_taunus_i, main_taunus_ii, marburg_biedenkopf_i, marburg_biedenkopf_ii, odenwald, 
-		offenbach_land_i, offenbach_land_ii, offenbach_land_iii, offenbach_stadt_, rheingau_taunus_i, 
-		rheingau_taunus_ii, rotenburg, schwalm_eder_i, schwalm_eder_ii, vogelsberg, waldeck_frankenberg_i, 
-		waldeck_frankenberg_ii, wetterau_i, wetterau_ii, wetterau_iii, wiesbaden_i_und_ii];
+
   var currentIndex = wahlkreise.length, temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...
@@ -115,34 +168,58 @@ function shuffleCards() {
     wahlkreise[randomIndex] = temporaryValue;
   }
 
-  // Deal cards: 10 each
-  playerCards = wahlkreise.slice(0, 7);
-  computerCards = wahlkreise.slice(7, 14);
 }
 
 
 //Set button-states
-//1=start game
-//2=start next turn
-//2.5=turn in progress
-//3=last turn finished
-//4=showing summary
+//1=game mode selection
+//2=category selection
+//3=start game
+//4=start next turn
+//5=turn in progress
+//6=last turn finished
+//7=showing summary
 
 function updateButtons(state) {
   stateOfGame = state;
   switch(state) {
     case 1:
+      // Show only game mode selectors
+      document.getElementById("hud").style.display = 'none';
+      document.getElementById("getMode").style.display = 'flex';
+      document.getElementById("getCategories").style.display = 'none';
+      document.getElementById("summary").style.display = 'none';
+      document.getElementById("cards").style.display = 'none';
+      document.getElementById("buttons").style.display = 'none';
+      newGameButton.style.display = 'none';
+      getMode();
+      break;
+    case 2:
+      // Show only category selectors
+      document.getElementById("hud").style.display = 'none';
+      document.getElementById("getMode").style.display = 'none';
+      document.getElementById("getCategories").style.display = 'flex';
+      document.getElementById("summary").style.display = 'none';
+      document.getElementById("cards").style.display = 'none';
+      document.getElementById("buttons").style.display = 'none';
+      getCategories();
+      break;
+    case 3:
       // Disable all buttons, show "waiting"-button, hide summary, show carddeck
+      document.getElementById("hud").style.display = 'grid';
+      document.getElementById("getMode").style.display = 'none';
+      document.getElementById("getCategories").style.display = 'none';
+      document.getElementById("summary").style.display = 'none';
+      document.getElementById("cards").style.display = 'grid';
+      document.getElementById("buttons").style.display = 'flex';
       startGameButton.style.display = 'none';
       startTurnButton.style.display = 'none';
       newGameButton.style.display = 'none';
       waitingButton.style.display = 'inline';
       showSummaryButton.style.display = 'none';
-      document.getElementById("summary").style.display = 'none';
-      document.getElementById("cards").style.display = 'grid';
       infoLine.innerHTML = "";
       break;
-    case 2:
+    case 4:
       // Display button to start next turn
       startGameButton.style.display = 'none';
       startTurnButton.style.display = 'inline';
@@ -150,7 +227,7 @@ function updateButtons(state) {
       waitingButton.style.display = 'none';
       showSummaryButton.style.display = 'none';
       break;
-    case 2.5:
+    case 5:
       // Disable all buttons, show "waiting"-button, reset infoline
       startGameButton.style.display = 'none';
       startTurnButton.style.display = 'none';
@@ -163,7 +240,7 @@ function updateButtons(state) {
       infoLine.classList.add('text-secondary');
       infoLine.innerHTML = "<h5 class='mb-1'><i class='em em-question mr-1'></i> " + turnWaitMsg +  "</h5>";
       break;
-    case 3:
+    case 6:
       // Show button to display summary after last turn
       startGameButton.style.display = 'none';
       startTurnButton.style.display = 'none';
@@ -171,7 +248,7 @@ function updateButtons(state) {
       waitingButton.style.display = 'none';
       showSummaryButton.style.display = 'inline';
       break;
-    case 4:
+    case 7:
       // Show summary, hide cards, show "new game"-button
       startGameButton.style.display = 'none';
       startTurnButton.style.display = 'none';
@@ -181,6 +258,159 @@ function updateButtons(state) {
       document.getElementById("summary").style.display = 'grid';
       document.getElementById("cards").style.display = 'none';
       break;
+  }
+}
+
+function getMode() {
+
+  var cardList = document.getElementById("chosenCardSelect");
+  var noCardSelectionDiv = document.getElementById("noCardSelection");
+  noCardSelectionDiv.innerHTML = "";
+
+  // Build list of all cards to choose from
+
+  // Reset list first
+  while (cardList.hasChildNodes()) {
+    cardList.removeChild(cardList.lastChild);
+  }
+
+
+  var chooseCardMsgElement = document.createElement("option");
+  chooseCardMsgElement.value = "noSelection";
+  var chooseCardMsgContent = document.createTextNode(chooseCardMsg);
+  chooseCardMsgElement.appendChild(chooseCardMsgContent);
+  cardList.appendChild(chooseCardMsgElement);
+
+  for (i = 0; i < wahlkreisliste.length; i++) {
+    var newCardInList = document.createElement("option");
+    newCardInList.value = wahlkreisliste[i][0];
+    var newCardInListContent = document.createTextNode(wahlkreisliste[i][1]);
+    newCardInList.appendChild(newCardInListContent);
+    cardList.appendChild(newCardInList);
+  }
+
+
+  // Let player choose game mode
+  $(document).on('click', '#randomCards', function() {
+    gameMode = "random";
+    updateButtons(2);
+  });
+
+  $(document).on('click', '#chosenCardButton', function() {
+    gameMode = "fixedCard";
+    chosenCard = $("#chosenCardSelect :selected").val();
+
+    if (chosenCard == "noSelection") {
+      noCardSelectionDiv.innerHTML = noCardSelectionMsG;
+    } else {
+      updateButtons(2);
+    }
+
+  });
+
+}
+
+function getCategories() {
+
+  var categoriesList = document.getElementById("chosenCategoriesList");
+  var noCategorySelectionDiv = document.getElementById("noCategorySelection");
+  noCategorySelectionDiv.innerHTML = "";
+
+  // Build checkboxes with categories
+
+  // Reset checkboxes first
+  while (categoriesList.hasChildNodes()) {
+    categoriesList.removeChild(categoriesList.lastChild);
+  }
+
+
+  for (i = 1; i < data_header.length; i++) {
+    var newCategoryCheckbox = document.createElement("div");
+    newCategoryCheckbox.classList.add("custom-control", "custom-checkbox", "custom-control-inline");
+
+    var newCategoryInput = document.createElement("input");
+    newCategoryInput.id = i;
+    newCategoryInput.classList.add("custom-control-input");
+    newCategoryInput.type = "checkbox";
+
+    var newCategoryLabel = document.createElement("label");
+    newCategoryLabel.classList.add("custom-control-label");
+    newCategoryLabel.setAttribute("for", i);
+    var newCategoryLabelContent = document.createTextNode(data_header[i]);
+    newCategoryLabel.appendChild(newCategoryLabelContent);
+
+    newCategoryCheckbox.appendChild(newCategoryInput);
+    newCategoryCheckbox.appendChild(newCategoryLabel);
+
+    categoriesList.appendChild(newCategoryCheckbox);
+  }
+
+  // Let player choose categories
+
+  // If player chooses random categories, create random array of five numbers
+  $(document).on('click', '#randomCategories', function() {
+    chosenCategories = [];
+    for (i = 1; i < data_header.length; i++) {
+      chosenCategories.push(i);
+    }
+
+    var currentCatIndex = chosenCategories.length, temporaryCatValue, randomCatIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentCatIndex) {
+
+      // Pick a remaining element...
+      randomCatIndex = Math.floor(Math.random() * currentCatIndex);
+      currentCatIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryCatValue = chosenCategories[currentCatIndex];
+      chosenCategories[currentCatIndex] = chosenCategories[randomCatIndex];
+      chosenCategories[randomCatIndex] = temporaryCatValue;
+    }
+
+    // Use first five categories of shuffled list
+    chosenCategories = chosenCategories.slice(0, 5);
+
+    initGame();
+
+  });
+
+  // if player chooses own categories, store in array
+  $(document).on('click', '#chosenCategoriesButton', function() {
+    chosenCategories = [];
+    for (i = 1; i < data_header.length; i++) {
+      currentCatID = "#" + i;
+      if($(currentCatID).is(':checked'))
+        chosenCategories.push(i);
+    }
+
+    if (chosenCategories.length != 5) {
+      noCategorySelectionDiv.innerHTML = noCategorySelectionMsG;
+    } else {
+      initGame();
+    }
+  });
+
+}
+
+function buildDecks() {
+  // Assign cards to player and computer according to game mode selection
+
+  if (gameMode == "random") {
+    // Deal 7 random cards each
+    playerCards = wahlkreise.slice(0, 7);
+    computerCards = wahlkreise.slice(7, 14);
+  } else {
+    // assign the chosen card to player seven times
+    playerCards = [];
+    for (i = 0; i < 7; i++) {
+      playerCards.push(eval(chosenCard));
+    }
+    // remove chosen player card from cards and then assign computer seven random cards
+    chosenCardIndex = wahlkreise.indexOf(eval(chosenCard));
+    wahlkreise.splice(chosenCardIndex, 1);
+    computerCards = wahlkreise.slice(0, 7);
   }
 }
 
@@ -211,28 +441,30 @@ function buildComputerCard() {
   // Fill in computer card by looping through card-array
   var computercardCategories = document.getElementById("computercard_categories");
   computercardCategories.innerHTML = "";
-  for (i = 1; i < currentComputerCard.length; i++) {
+  for (i = 0; i < chosenCategories.length; i++) {
+
+    var currentCategory = chosenCategories[i];
 
     // make new row
     var newRow = document.createElement("div");
-    newRow.id = "computer_category_row" + i;
+    newRow.id = "computer_category_row" + currentCategory;
     newRow.classList.add('list-group-item', 'd-flex', 'w-100', 'justify-content-between');
     document.getElementById("computercard_categories").appendChild(newRow);
 
     // category
     var newCat = document.createElement("h6");
-    var newCatContent = document.createTextNode(data_header[i]);
+    var newCatContent = document.createTextNode(data_header[currentCategory]);
     newCat.appendChild(newCatContent);
-    document.getElementById("computer_category_row" + i).appendChild(newCat);
+    document.getElementById("computer_category_row" + currentCategory).appendChild(newCat);
 
     // show value
     var newVal = document.createElement("span");
     var newValContent;
-    newValContent = document.createTextNode(currentComputerCard[i] + data_suffix[i]);
+    newValContent = document.createTextNode(currentComputerCard[currentCategory] + data_suffix[currentCategory]);
     newVal.appendChild(newValContent);
-    newVal.id = "computercardCategory" + i;
+    newVal.id = "computercardCategory" + currentCategory;
     newVal.classList.add('category_nolink');
-    document.getElementById("computer_category_row" + i).appendChild(newVal);
+    document.getElementById("computer_category_row" + currentCategory).appendChild(newVal);
 
   }
 }
@@ -240,11 +472,11 @@ function buildComputerCard() {
 
 
 $(document).ready(function() {
- // Let player choose category
 
+  // Let player choose category
   $(document).on('click', '.category_link', function(event) {
 
-    if (stateOfGame == 2.5) {
+    if (stateOfGame == 5) {
 
       var computerCardDiv = document.getElementById("computercard");
       var firstComputerCard = currentComputerCard;
@@ -388,9 +620,9 @@ $(document).ready(function() {
       // Proceed with game: Next card, if cards left or summary, if no cards left
 
       if (playerCards.length > 0) {
-        updateButtons(2);
+        updateButtons(4);
       } else {
-        updateButtons(3);
+        updateButtons(6);
         infoLine.classList.remove('text-success');
         infoLine.classList.remove('text-warning');
         infoLine.classList.remove('text-danger');
@@ -401,8 +633,15 @@ $(document).ready(function() {
     }
 
   } );
+
+  // Show gameMode-Chooser on load - GAME IS STARTED HERE
+  updateButtons(1);
+
 });
 
+function initNewGame() {
+  updateButtons(1);
+}
 
 
 function initGame() {
@@ -410,9 +649,10 @@ function initGame() {
 
   // Shuffle and deal cards
   shuffleCards();
+  buildDecks();
 
   // Show cards and beginn game
-  updateButtons(1);
+  updateButtons(3);
 
   // Reset score
   playerPoints = 0;
@@ -432,7 +672,7 @@ function initSummary() {
   //Function to display a summary of each turn after the game
 
   // Change buttons when summary is shown
-  updateButtons(4)
+  updateButtons(7)
 
   var summaryHeadline = document.getElementById('summaryHeadline');
 
@@ -450,7 +690,7 @@ function initSummary() {
 function initTurn() {
   //Function to initiate the next turn by showing the first player card
 
-  updateButtons(2.5);
+  updateButtons(5);
 
   // choose first card from each deck
   currentPlayerCard = playerCards[0];
@@ -460,32 +700,34 @@ function initTurn() {
   var playercardHeader = document.getElementById("playercard_header");
   // playercardHeader.innerHTML = "<h3 class='m-3 card-title'> <img src='img/flags/" + currentPlayerCard[0] + ".svg' class='flag mr-2 align-middle img-thumbnail'>" + currentPlayerCard[0] + "</h3>";
   playercardHeader.innerHTML = "<h3 class='m-3 card-title'>" + currentPlayerCard[0] + "</h3>";
-	
+
   // Fill in player card by looping through card-array
   var playercardCategories = document.getElementById("playercard_categories");
   playercardCategories.innerHTML = "";
-  for (i = 1; i < currentPlayerCard.length; i++) {
+  for (i = 0; i < chosenCategories.length; i++) {
+
+    var currentCategory = chosenCategories[i];
 
     // make new row
     var newRow = document.createElement("div");
-    newRow.id = "player_category_row" + i;
+    newRow.id = "player_category_row" + currentCategory;
     newRow.classList.add('list-group-item', 'd-flex', 'w-100', 'justify-content-between');
     document.getElementById("playercard_categories").appendChild(newRow);
 
     // category
     var newCat = document.createElement("h6");
-    var newCatContent = document.createTextNode(data_header[i]);
+    var newCatContent = document.createTextNode(data_header[currentCategory]);
     newCat.appendChild(newCatContent);
-    document.getElementById("player_category_row" + i).appendChild(newCat);
+    document.getElementById("player_category_row" + currentCategory).appendChild(newCat);
 
     // link with value
     var newVal = document.createElement("a");
-    var newValContent = document.createTextNode(currentPlayerCard[i] + data_suffix[i]);
+    var newValContent = document.createTextNode(currentPlayerCard[currentCategory] + data_suffix[currentCategory]);
     newVal.appendChild(newValContent);
-    newVal.id = "playercardCategory" + i;
+    newVal.id = "playercardCategory" + currentCategory;
     newVal.href = "#";
     newVal.classList.add('category_link');
-    document.getElementById("player_category_row" + i).appendChild(newVal);
+    document.getElementById("player_category_row" + currentCategory).appendChild(newVal);
 
   }
 
