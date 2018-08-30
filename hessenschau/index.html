@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Hessenschau-Test</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Roboto|Roboto+Condensed" rel="stylesheet">
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css'>
   <link rel='stylesheet prefetch' href='https://afeld.github.io/emoji-css/emoji.css'>
   <link rel="stylesheet" href="css/style.css">
@@ -15,15 +16,15 @@
 <!-- TEST: BREITE AUF 660 EINSTELLEN
 <div style="max-width: 660px;" class="container p-0 mx-auto my-3 border border-dark"> -->
 
-<div class="container-fluid text-center p-0">
+<div class="container-fluid text-center p-0" id="hud">
   <!-- Points counter -->
   <div class="border border-dark bg-dark text-white d-none d-sm-block mb-2 mx-0 py-1 px-3 py-sm-3 px-sm-4">
     <div class="d-flex w-100 justify-content-between">
-      <h5><i class="em em-slightly_smiling_face mr-1"></i> <span class="d-none d-sm-inline">Spieler</span></h6>
-      <h5><strong id="player_count">0</strong></h5>
-      <h5 id="player_count">:</h5>
-      <h5><strong id="computer_count">0</strong></h5>
-      <h5><span class="d-none d-sm-inline">Computer</span> <i class="em em-robot_face ml-1"></i> </h6>
+      <h4><i class="em em-slightly_smiling_face mr-1"></i> <span class="d-none d-sm-inline">Spieler</span></h4>
+      <h4><strong id="player_count">0</strong></h4>
+      <h4 id="player_count">:</h4>
+      <h4><strong id="computer_count">0</strong></h4>
+      <h4><span class="d-none d-sm-inline">Computer</span> <i class="em em-robot_face ml-1"></i> </h4>
     </div>
   </div>
   <div class="row mx-1">
@@ -43,29 +44,12 @@
     </div>
   </div>
   <!-- Buttons to control the game -->
-  <div class="d-flex w-100 mx-auto justify-content-center py-1 px-1 py-sm-3 px-sm-4">
-    <button type="button" class="btn btn-lg btn-dark" id="startGame">Neues Spiel</button>
-    <button type="button" class="btn btn-lg btn-dark" id="startTurn">N&auml;chster Zug</button>
-    <button type="button" class="btn btn-lg btn-dark" id="newGame">Neues Spiel</button>
-    <button type="button" class="btn btn-lg btn-dark" id="showSummary">Zusammenfassung</button>
-    <button type="button" class="btn btn-lg btn-dark" id="waiting" disabled>Warte...</button>
-  </div>
 </div>
 
 <!-- Summary after the game goes here -->
 <div class="container-fluid" id="summary">
-  <div class="d-flex w-100 justify-content-center" id="summaryHeadline">
+  <div class="d-flex w-100 justify-content-center my-2" id="summaryHeadline">
     <!-- from Javascript -->
-  </div>
-  <div class="d-flex w-100 justify-content-around py-2">
-    <div class="p-1">
-      <h5 class="d-none d-sm-block">Spieler</h5>
-      <h6 class="d-block d-sm-none">Spieler</h6>
-    </div>
-    <div class="p-1">
-      <h5 class="d-none d-sm-block">Computer</h5>
-      <h6 class="d-block d-sm-none">Computer</h6>
-    </div>
   </div>
   <div class="d-flex w-100 list-group" id="summary_list">
       <!-- This gets built in Javascript
@@ -76,6 +60,50 @@
         <div class="p-1">Spieler: Eintracht Frankfurt<br>Ewige Tabelle &ndash; 9. Platz</div>
         <div class="p-1">Computer: Bayern München<br>Ewige Tabelle &ndash; 1. Platz</div>
       </div> -->
+  </div>
+</div>
+
+<!-- let player choose game mode before starting -->
+<div class="container-fluid" id="getMode">
+  <div class="p-1">
+    <h3 class="mt-3">Spielmodus auswählen</h3>
+    <p class="mx-1 my-3">Bevor es los geht, können Sie hier auswählen, wie Sie spielen wollen.
+      Sie können entweder mit sieben zufällig ausgewählten Wahlkreisen spielen
+      oder einen festen Wahlkreis für alle sieben Runden aussuchen.
+      Der Computergegner erhält in jeder Runde einen zufälligen Wahlkreis.</p>
+    <button type="button" class="btn btn-lg btn-primary btn-block mx-1 my-3" id="randomCards">
+      Zufällige Wahlkreise</button>
+    <h5 class="my-4 d-block text-center"><i>oder</i></h5>
+    <select class="custom-select custom-select-lg mx-1 mb-1" id="chosenCardSelect">
+      <!-- Options from Javascript -->
+    </select>
+    <div class="text-danger mx-1 my-2" id="noCardSelection">
+      <!-- Text from Javascript -->
+    </div>
+    <button type="button" class="btn btn-lg btn-primary btn-block m-1" id="chosenCardButton">
+      Mit diesem Wahlkreis spielen</button>
+  </div>
+</div>
+
+<!-- let player choose categories to play with before starting -->
+<div class="container-fluid" id="getCategories">
+  <div class="p-1">
+    <h3 class="mt-3">Kategorien auswählen</h3>
+    <p class="mx-1 my-3">Sie können entweder mit fünf zufälligen Kategorien spielen
+      oder unten fünf Kategorien auswählen.</p>
+    <button type="button" class="btn btn-lg btn-primary btn-block mx-1 my-3" id="randomCategories">
+      Zufällige Kategorien</button>
+
+    <div class="mx-1 mb-3" id="chosenCategoriesList">
+      <!-- category checkboxes from Javascript -->
+    </div>
+
+    <div class="text-danger mx-1 my-2" id="noCategorySelection">
+      <!-- Text from Javascript -->
+    </div>
+
+    <button type="button" class="btn btn-lg btn-primary btn-block mx-1 my-3" id="chosenCategoriesButton">
+      Mit diesen Kategorien spielen</button>
   </div>
 </div>
 
@@ -98,9 +126,8 @@
       <div class="flipper">
         <!-- Prebuilt back of computer card -->
         <div class="back rounded" id="computerCardBack">
-          <div class="card-body p-0 d-flex align-items-center justify-content-center h-100">
-<!--           <img src="img/cardbackhead.jpg" class="card-img-top"> Image on top of card currently disabled -->
-            <h2 id="computercardBackHeader" class='card-title text-white'>No peeking!</h2>
+          <div class="card-body p-0 d-flex align-items-top align-items-sm-center justify-content-center h-100">
+            <h3 id="computercardBackHeader" class='card-title text-white'>No peeking!</h3>
           </div>
         </div>
         <!-- front of computer card -->
@@ -118,6 +145,15 @@
     </div>
   </div>
 </div>
+
+<div class="d-flex w-100 mx-auto justify-content-center py-1 px-1 py-sm-3 px-sm-4" id="buttons">
+  <button type="button" class="btn btn-lg btn-dark" id="startGame">Neues Spiel</button>
+  <button type="button" class="btn btn-lg btn-dark" id="startTurn">N&auml;chster Zug</button>
+  <button type="button" class="btn btn-lg btn-dark" id="newGame">Neues Spiel</button>
+  <button type="button" class="btn btn-lg btn-dark" id="showSummary">Zusammenfassung</button>
+  <button type="button" class="btn btn-lg btn-dark" id="waiting" disabled>Warte...</button>
+</div>
+
 
 <!-- TEST DIV 660 ENDE
 </div> -->
