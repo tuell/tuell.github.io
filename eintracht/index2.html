@@ -25,10 +25,12 @@
 	  <div id="hudcontent" class="mr-auto mx-sm-auto">
 		  <div class="py-2 px-3 d-flex justify-content-between align-content-center">
         <h4 class="anzeigetafel"><img src="img/icon_player.png" height="40"> <span class="d-none d-sm-inline ml-2">Spieler</span></h4>
-        <span id="player_count"><img src="img/0.jpg" alt="0"></span>
-        <img src="img/colon.jpg" alt="0">
-        <span id="computer_count"><img src="img/0.jpg" alt="0"></span>
-			  <h4 class="anzeigetafel"><span class="d-none d-sm-inline mr-2">Computer</span> <img src="img/icon_computer.png" height="40"> </h4>
+        <div>
+          <img id="player_count" src="img/score_blank.gif" width="38" height="56"></img>
+          <img src="img/colon.jpg" alt="0">
+          <img id="computer_count" src="img/score_blank.gif" width="38" height="56"></img>
+        </div>
+	      <h4 class="anzeigetafel"><span class="d-none d-sm-inline mr-2">Computer</span> <img src="img/icon_computer.png" height="40"> </h4>
 		  </div>
 	  </div>
 	</div>
@@ -41,7 +43,7 @@
 
 <!-- Summary after the game goes here -->
 <div class="container" id="summary">
-  <div class="card m-1" id="summaryCard">
+  <div class="card m-1 mt-3" id="summaryCard">
     <div class="d-flex w-100 justify-content-center mt-2" id="summaryHeadline">
       <!-- from Javascript -->
     </div>
