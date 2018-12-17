@@ -1,0 +1,292 @@
+/* Hide Scrollbars */
+
+html {
+	overflow:hidden;
+}
+
+/* Font settings */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: url('../img/rasen.jpg') center repeat;
+}
+
+h1, h2, h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+}
+
+h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+h4.anzeigetafel {
+	font-family: 'Roboto Condensed', sans-serif;
+	color: #fff;
+	font-size: 2em;
+	line-height: 56px;
+}
+
+/* colours */
+
+.btn-primary {
+  background-color: #005293!important;
+  border-color: #005293!important;
+}
+
+.bg-primary {
+  background-color: #005293!important;
+}
+
+.bg-anzeigetafel {
+	background-color: #030303;
+	background: url('../img/hud_bg.jpg') center center repeat;
+	color: #fff;
+}
+
+.text-danger, .bg-danger {
+  color: #CC1A14!important;
+}
+
+.text-warning, .bg-warning {
+  color: #FFB114!important;
+}
+
+.text-success, .bg-success {
+  color: #019B72!important;
+}
+
+.text-einleitung {
+  color: #fff;
+}
+
+a {
+  color: #006dc1!important;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+
+#playercard_categories .list-group {
+	background-color: transparent!important;
+}
+
+#playercard_categories .list-group-item {
+	background-color: transparent!important;
+}
+
+#playercard_categories .list-group-item:hover {
+	background-color: rgba(238,238,238,0.8)!important;
+}
+
+#computercard_categories .list-group-item {
+	background-color: transparent!important;
+}
+
+#computercard_categories .list-group {
+	background-color: transparent!important;
+}
+
+
+
+/* various settings */
+
+#startGame, #startTurn, #newGame, #waiting, #showSummary {
+  display: none;
+}
+
+#cards, #summary {
+  display: none;
+}
+
+#playercard {
+  min-width: 240px;
+  background-color: #fff;
+	-webkit-box-shadow: 8px 8px 30px #000000;
+    box-shadow: 8px 8px 30px #000000;
+}
+
+#computercard {
+  min-width: 240px;
+  background-color: transparent!important;
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    /*border: 10px solid rgba(0, 0, 0, 0);*/
+    border: none;
+    border-radius: 0.8rem;
+}
+
+/*@media only screen and (max-width: 576px) {
+	#hud, #buttons {
+		max-width: 576px;
+	}
+  }*/
+
+.rounded {
+    border-radius: 0.8rem !important;
+}
+
+/* icons Player und Computer - currently not used */
+
+.icon_player {
+    background-position: center;
+    background-image: url("../img/icon_player.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+.icon_computer {
+    background-position: center;
+    background-image: url("../img/icon_computer.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+
+/* summary text */
+
+#summaryCard {
+  background-color: rgba(255,255,255,0.9);
+}
+
+#summary_list {
+  font-size: 0.9rem;
+}
+
+.summary_left, .summary_right {
+	width: 38%;
+}
+
+.summary_center {
+	width: 24%;
+	font-size: 0.8rem;
+}
+
+.winner {
+  font-weight: bold;
+}
+
+
+
+/* Place cards behind each other on mobile */
+
+@media only screen and (max-width: 576px) {
+  #playercard {
+    z-index: 10;
+    position: relative;
+    top: 50px;
+    max-width: 240px;
+  }
+
+  #computercard {
+    z-index: 5;
+    position: relative;
+    left: -150px;
+    max-width: 240px;
+  }
+
+  #buttons {
+    margin-top: 50px;
+  }
+
+  #summary {
+    margin-bottom: -40px;
+  }
+
+
+}
+
+.card-deck {
+  overflow: visible!important;
+}
+
+.scrolling-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.transparent-list .list-group-item {
+  background-color: transparent!important;
+  color: transparent!important;
+  border: 0;
+}
+
+.flag {
+  width: 2em;
+  height: 1.5em;
+}
+
+/* Flip-Animation */
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+	transform-style: preserve-3d;
+}
+
+/* flip the pane when hovered */
+.flip-container.flip .back {
+  transform: rotateY(0deg);
+}
+
+.flip-container.flip .front {
+  transform: rotateY(180deg);
+}
+
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: absolute;
+	top: 0;
+	left: 0;
+  width: 100%;
+}
+
+/* front pane, initially hidden */
+.front {
+	/* for firefox 31 */
+  transform: rotateY(0deg);
+	background-color: #fff;
+	border-radius: 0.8rem;
+	-webkit-box-shadow: 8px 8px 30px #000000;
+    box-shadow: 8px 8px 30px #000000;
+}
+
+/* back, placed over front */
+.back {
+  z-index: 2;
+	transform: rotateY(-180deg);
+  background: url("../img/cardback.jpg") center repeat;
+  color: transparent!important;
+	border: 10px solid rgba(255, 255, 255, 1);
+    border-radius: 0.8rem;
+	-webkit-box-shadow: 8px 8px 30px #000000;
+    box-shadow: 8px 8px 30px #000000;
+}
