@@ -248,6 +248,7 @@ function updateButtons(state) {
       break;
     case 7:
       // Show summary, hide cards, show "new game"-button
+      document.getElementById("hud").style.display = "none";
       startGameButton.style.display = "none";
       startTurnButton.style.display = "none";
       waitingButton.style.display = "none";
@@ -462,8 +463,13 @@ function updateScore() {
   // function to display the current score
   playerCount = document.getElementById("player_count");
   computerCount = document.getElementById("computer_count");
-  playerCount.innerHTML = "<img src='img/" + playerPoints + ".jpg' alt='" + playerPoints + "'>";
-  computerCount.innerHTML = "<img src='img/" + computerPoints + ".jpg' alt='" + computerPoints + "'>";
+  playerCount.className = '';
+  playerCount.classList.add("score" + playerPoints);
+  computerCount.className = '';
+  computerCount.classList.add("score" + computerPoints);
+
+  // playerCount.innerHTML = "<img src='img/" + playerPoints + ".jpg' alt='" + playerPoints + "'>";
+  // computerCount.innerHTML = "<img src='img/" + computerPoints + ".jpg' alt='" + computerPoints + "'>";
 }
 
 function buildComputerCard() {
@@ -759,13 +765,16 @@ function initSummary() {
   var summaryHeadline = document.getElementById("summaryHeadline");
 
   if (playerPoints > computerPoints) {
-    summaryHeadline.innerHTML = "<h3 class='text-success'>" + gameWonMsg + "</h3>";
+    summaryHeadline.innerHTML = "<h3 class='text-success'>" + playerPoints + ":" +
+     computerPoints + " - " + gameWonMsg + "</h3>";
   }
   if (playerPoints < computerPoints) {
-    summaryHeadline.innerHTML = "<h3 class='text-danger'>" + gameLostMsg + "</h3>";
+    summaryHeadline.innerHTML = "<h3 class='text-danger'>" + playerPoints + ":" +
+     computerPoints + " - " + gameLostMsg + "</h3>";
   }
   if (playerPoints == computerPoints) {
-    summaryHeadline.innerHTML = "<h3 class='text-warning'>" + gameDrawMsg + "</h3>";
+    summaryHeadline.innerHTML = "<h3 class='text-warning'>" + playerPoints + ":" +
+     computerPoints + " - " + gameDrawMsg + "</h3>";
   }
 }
 
